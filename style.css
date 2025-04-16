@@ -48,10 +48,10 @@ nav a:hover {
     background-color: #ddd;
     color: black;
 }
-nav a.active {
+/*nav a.active {
     background-color: #007BFF; /* Highlight active link */
     color: white;
-}
+}*/
 
 /* Dropdown Container */
 .dropdown {
