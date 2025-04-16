@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Navigation</title>
+    <link rel='stylesheet' id='swiper-css' href="swipper.css" media='all' />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="contact_form.css" />
+    
+</head>
+<body>
+
+    <!-- Logo -->
+    <img src="Logo 2.jpg" alt="Logo" class="logo">
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a> 
+        <a href="about us.html">About us</a>
+        <a href="services.html">Services</a>
+
+       <!-- <div class="dropdown">
+            <button class="dropbtn">Transport</button>
+            <div class="dropdown-content">
+                <a href="page9.html">Page 9</a>
+                <a href="page10.html">Page 10</a>
+            </div>
+        </div> -->
+
+        <a href="contact us.html">Contact Us</a>
+    </nav>
+
+
+    <main>
+
+        <div class="container">
+            <h1>Contact Us</h1>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+    
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Consultants -->
+    <div class="consultants">
+        <div class="column">
+            <h3>Consultant</h3>
+            <p>Simba Gotosa<br>+263779830450</p>
+        </div>
+        <div class="column">
+            <h3><b>Horticulture Consultant</b></h3>
+            <p>Martin Bepete<br>+263773043414</p>
+        </div>
+        <div class="column">
+            <h3>Consultant</h3>
+            <p>Jefias Mataure<br>+263719262565</p>    
+        </div>
+    </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-left">
+            <a href="index.html">Home</a>
+            <a href="about us.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="contact us.html">Contact</a>
+        </div>
+
+        <div class="footer-middle">
+            <p>Office: +263242704329</p>
+            <p>Mobile: +263772572305</p>
+        </div>
+
+        <div class="footer-right">
+            <p>74 Selous Avenue, Harare, Zimbabwe</p>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        let totalSlides = 6;
+
+        // Show the slides
+        function showSlides() {
+            let slides = document.getElementsByClassName("slides");
+            let dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+
+            // Update the dots
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            dots[slideIndex - 1].className += " active";
+
+            setTimeout(showSlides, 45000); // Change image every 45 seconds
+        }
+
+        // Change slide manually
+        function changeSlide(n) {
+            slideIndex += n;
+            let slides = document.getElementsByClassName("slides");
+            let dots = document.getElementsByClassName("dot");
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            if (slideIndex < 1) { slideIndex = slides.length; }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+
+            // Update the dots
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            dots[slideIndex - 1].className += " active";
+        }
+
+        // Initialize dots dynamically
+        function initDots() {
+            let dotsContainer = document.getElementById("dots");
+            for (let i = 0; i < totalSlides; i++) {
+                let dot = document.createElement("span");
+                dot.classList.add("dot");
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        initDots(); // Initialize the dots
+        showSlides(); // Initialize slideshow
+
+        // Add active class to the current page link
+        const currentPage = window.location.pathname.split("/").pop(); // Get the current page name
+
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            if (link.href.includes(currentPage)) {
+                link.classList.add('active'); // Add active class to the current page
+            }
+        });
+    </script>
+
+
+</body>
+</html>

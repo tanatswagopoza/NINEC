@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Navigation</title>
+    <link rel='stylesheet' id='swiper-css' href="swipper.css" media='all' />
+    <link rel="stylesheet" href="about_us.css" />
+    <style>
+        /* Set the background image for the entire page */
+        body {
+            font-family: Arial, sans-serif;
+           /* Replace with your image URL  background-image: url("tomatoes.jpg");  */
+            background-size: cover;  /* Ensures the background image covers the entire screen */
+            background-position: center;  /* Centers the background image */
+            margin: 0;
+            padding: 0;
+            height: 100vh;  /* Ensures the background covers the full height of the viewport */
+        }
+
+        /* Styling for the contact form container */
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);  /* Semi-transparent white background */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        </style>
+</head>
+<body>
+
+    <!-- Logo -->
+    <img src="Logo 2.jpg" alt="Logo" class="logo">
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a> 
+        <a href="about us.html">About us</a>
+        <a href="services.html">Services</a>
+
+       <!-- <div class="dropdown">
+            <button class="dropbtn">Transport</button>
+            <div class="dropdown-content">
+                <a href="page9.html">Page 9</a>
+                <a href="page10.html">Page 10</a>
+            </div>
+        </div> -->
+
+        <a href="contact us.html">Contact Us</a>
+    </nav>
+
+     <!-- Panels Section -->
+     <div class="panel-container">
+        <!-- Panel 1 -->
+        <div class="panel">
+            <h2><b>Our Value Proposition</b></h2>
+            <p style="text-align:left;">By partnering with us, farmers and organizations can<br></p>
+
+
+
+            <p style="text-align:left;"><br>- Increase crop yields and quality.</p>
+            <p style="text-align:left;">- Improve agricultural productivity and efficiency.</p>
+            <p style="text-align:left;">- Enhance their competitiveness in the market.</p>
+            <p style="text-align:left;">- Access expert knowledge and guidance.</p>
+            <p style="text-align:left;">- Benefit from our extensive experience in agricultural contracting and consulting.</p>
+                
+                </p>
+            
+        </div>
+    </div>
+
+     <!-- Panels Section -->
+     <div class="panel-container">
+        <!-- Panel 1 -->
+        <div class="panel">
+            <h2><b>Why Choose Us?</b><br></h2>
+
+            <p style="text-align:left;"><br>- <b>Expertise:</b> Our team has extensive experience in agricultural contracting, consulting, and training.</p>
+            <p style="text-align:left;">- <b>Proven Track Record:</b> We have a proven track record of delivering successful agricultural projects.</p>
+            <p style="text-align:left;">- <b>Commitment to Sustainability:</b> We prioritize sustainable agricultural practices and environmental  stewardship.</p>
+                
+                    
+        </div>
+    </div>
+
+    <main>
+        <p style="text-align:center;">Let's work together to unlock the full potential of your agricultural endeavors!<br><br></p>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-left">
+            <a href="index.html">Home</a>
+            <a href="about us.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="contact us.html">Contact</a>
+        </div>
+
+        <div class="footer-middle">
+            <p>Office: +263242704329</p>
+            <p>Mobile: +263772572305</p>
+        </div>
+
+        <div class="footer-right">
+            <p>74 Selous Avenue, Harare, Zimbabwe</p>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        let totalSlides = 6;
+
+        // Show the slides
+        function showSlides() {
+            let slides = document.getElementsByClassName("slides");
+            let dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+
+            // Update the dots
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            dots[slideIndex - 1].className += " active";
+
+            setTimeout(showSlides, 45000); // Change image every 45 seconds
+        }
+
+        // Change slide manually
+        function changeSlide(n) {
+            slideIndex += n;
+            let slides = document.getElementsByClassName("slides");
+            let dots = document.getElementsByClassName("dot");
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            if (slideIndex < 1) { slideIndex = slides.length; }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+
+            // Update the dots
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            dots[slideIndex - 1].className += " active";
+        }
+
+        // Initialize dots dynamically
+        function initDots() {
+            let dotsContainer = document.getElementById("dots");
+            for (let i = 0; i < totalSlides; i++) {
+                let dot = document.createElement("span");
+                dot.classList.add("dot");
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        initDots(); // Initialize the dots
+        showSlides(); // Initialize slideshow
+
+        // Add active class to the current page link
+        const currentPage = window.location.pathname.split("/").pop(); // Get the current page name
+
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            if (link.href.includes(currentPage)) {
+                link.classList.add('active'); // Add active class to the current page
+            }
+        });
+    </script>
+
+
+</body>
+</html>

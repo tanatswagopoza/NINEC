@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Navigation</title>
+    <link rel='stylesheet' id='swiper-css' href="swipper.css" media='all' />
+    <link rel="stylesheet" href="style.css" />
+    
+</head>
+<body>
+
+    <!-- Logo -->
+    <img src="Logo 2.jpg" alt="Logo" class="logo">
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a> 
+        <a href="about us.html">About us</a>
+        <a href="services.html">Services</a>
+
+       <!-- <div class="dropdown">
+            <button class="dropbtn">Transport</button>
+            <div class="dropdown-content">
+                <a href="page9.html">Page 9</a>
+                <a href="page10.html">Page 10</a>
+            </div>
+        </div> -->
+
+        <a href="contact us.html">Contact Us</a>
+    </nav>
+
+    
+   
+     <!-- Panels Section -->
+     <div class="panel-container">
+        <!-- Panel 1 -->
+        <div class="panel">
+            <h2><b>What We Do</b></h2>
+            <p style="text-align:left;">At  NinecAgriculture we specialize in providing comprehensive agricultural solutions to farmers, organizations, and value chain players. Our expertise spans<br></p>
+
+                <p style="text-align:left;"><br>- Contracting Services: We offer contracting services for the production of tobacco, wheat, cotton, soybean, castor bean, and horticultural crops.</p>
+                <p style="text-align:left;">- Crop Monitoring: Our team monitors contracted crops throughout the entire production cycle, from land preparation to delivery to the contracting offtaker.</p>
+                <p style="text-align:left;">- Seed Multiplication Programs: Leveraging our experience, we design and manage seed multiplication programs for a wide range of crops.</p>
+                <p style="text-align:left;">- Consulting Services: We provide expert consulting services to farmers and organizations with interests in agriculture.</p>
+                <p style="text-align:left;">- Extension and Training Services: Our team offers extension and training services for farmers and other agriculture value chain players.</p>
+                <p style="text-align:left;">- On-Farm Training: We conduct on-farm field demonstrations, farmer field schools, and field days to impart technical knowledge to farmers.</p>
+                <p style="text-align:left;">- Individualized Support: Our experts provide one-on-one monitoring and mentoring to individual farmers.</p>
+                
+                </p>
+        </div>
+    </div>
+
+
+    <main>
+        <p style="text-align:center;">Let's work together to unlock the full potential of your agricultural endeavors!<br><br></p>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-left">
+            <a href="index.html">Home</a>
+            <a href="about us.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="contact us.html">Contact</a>
+        </div>
+
+        <div class="footer-middle">
+            <p>Office: +263242704329</p>
+            <p>Mobile: +263772572305</p>
+        </div>
+
+        <div class="footer-right">
+            <p>74 Selous Avenue, Harare, Zimbabwe</p>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        let totalSlides = 6;
+
+        // Show the slides
+        function showSlides() {
+            let slides = document.getElementsByClassName("slides");
+            let dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+
+            // Update the dots
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            dots[slideIndex - 1].className += " active";
+
+            setTimeout(showSlides, 45000); // Change image every 45 seconds
+        }
+
+        // Change slide manually
+        function changeSlide(n) {
+            slideIndex += n;
+            let slides = document.getElementsByClassName("slides");
+            let dots = document.getElementsByClassName("dot");
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            if (slideIndex < 1) { slideIndex = slides.length; }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+
+            // Update the dots
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            dots[slideIndex - 1].className += " active";
+        }
+
+        // Initialize dots dynamically
+        function initDots() {
+            let dotsContainer = document.getElementById("dots");
+            for (let i = 0; i < totalSlides; i++) {
+                let dot = document.createElement("span");
+                dot.classList.add("dot");
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        initDots(); // Initialize the dots
+        showSlides(); // Initialize slideshow
+
+        // Add active class to the current page link
+        const currentPage = window.location.pathname.split("/").pop(); // Get the current page name
+
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            if (link.href.includes(currentPage)) {
+                link.classList.add('active'); // Add active class to the current page
+            }
+        });
+    </script>
+
+
+</body>
+</html>
